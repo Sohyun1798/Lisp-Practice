@@ -1,0 +1,114 @@
+Break 1 [16]> (flet ((f (n)
+(+ n 10)))
+(f 5))
+15
+Break 1 [16]> (flet ((f (n) (+ n 10))) (f 5))
+15
+Break 1 [16]> (flet ((f (n) (+ n 10)) (g (n) (- n 3))) (g (f 5)))
+12
+Break 1 [16]> (labels ((a (n) (+ n 5)) (b (n) (+ (a n) 6))) (b 10))
+21
+Break 1 [16]> (flet ((a (n) (+ n 5)) (b (n) (+ (a n) 6))) (b 10))
+
+*** - EVAL: undefined function A
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'A).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'A).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 2 [17]> (labels ((a (n) (+ n 5)) (b (n) (+ (a n) 6))) (b 10))
+21
+Break 2 [17]> (defun square (n)
+(* n n))
+SQUARE
+Break 2 [17]> square (5)
+
+*** - SYSTEM::READ-EVAL-PRINT: variable SQUARE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of SQUARE.
+STORE-VALUE    :R2      Input a new value for SQUARE.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 3 [18]> (square (5))
+
+*** - EVAL: 5 is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 4 [19]> (square 5)
+25
+Break 4 [19]> (eq 'fooo 'FoOo)
+T
+Break 4 [19]> (+ 1 1.0)
+2.0
+Break 4 [19]> (expt 53 53)
+24356848165022712132477606520104725518533453128685640844505130879576720609150223301256150373
+Break 4 [19]> (/ 4 6)
+2/3
+Break 4 [19]> (/ 4.0 6)
+0.6666667
+Break 4 [19]> (princ "Tutti Frutti")
+Tutti Frutti
+"Tutti Frutti"
+Break 4 [19]> (princ "He yelled \"Stop that thief!\" from the busy street.")
+He yelled "Stop that thief!" from the busy street.
+"He yelled \"Stop that thief!\" from the busy street."
+Break 4 [19]> (expt 2 (+ 3 4))
+128
+Break 4 [19]> (cons 'chiken 'cat)
+(CHIKEN . CAT)
+Break 4 [19]> (cons 'pork '(beef chiken))
+(PORK BEEF CHIKEN)
+Break 4 [19]> (cons 'beef (cons 'chiken()))
+(BEEF CHIKEN)
+Break 4 [19]> (cons 'pork (cons 'beef (cons 'chiken ())))
+(PORK BEEF CHIKEN)
+Break 4 [19]> (car '(pork beef chiken))
+PORK
+Break 4 [19]> (cdr '(pork beef chiken))
+(BEEF CHIKEN)
+Break 4 [19]> (car (cdr '(pork beef chiken)))
+BEEF
+Break 4 [19]> (cadr '(pork beef chicken))
+BEEF
+Break 4 [19]> (cadadr '(pork beef chicken))
+
+*** - CADADR: BEEF is not a list
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 5 [20]> (cadadr '(pork (beef) chicken))
+NIL
+Break 5 [20]> (cdar '(pork beef chicken))
+
+*** - CDAR: PORK is not a list
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort main loop
+Break 6 [21]> (cdr '(pork beef chicken))
+(BEEF CHICKEN)
+Break 6 [21]> (cdr (car '(pork beef chicken)))
+
+*** - CDR: PORK is not a list
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort main loop
+Break 7 [22]> (list 'pork 'beef 'chicken)
+(PORK BEEF CHICKEN)
