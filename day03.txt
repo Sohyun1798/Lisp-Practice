@@ -1,0 +1,18 @@
+Break 7 [22]> '(cat (dog bird) cow)
+(CAT (DOG BIRD) COW)
+Break 7 [22]> (car '((peas carrots tomatoes) (pork beef chicken)))
+(PEAS CARROTS TOMATOES)
+Break 7 [22]> (cdr (car '((peas carrots tomatoes) (pork beef chicken))))
+(CARROTS TOMATOES)
+Break 7 [22]> (cdar '((peas carrots tomatoes) (pork beef chicken)))
+(CARROTS TOMATOES)
+Break 7 [22]> (cons (cons 'peas (cons 'carrots (cons 'tomatoes ()))) (cons (cons 'pork (cons 'beef (cons 'chicken ()))) ()))
+((PEAS CARROTS TOMATOES) (PORK BEEF CHICKEN))
+Break 7 [22]> (cddr '((peas carrots tomatoes) (pork beef chicken) duck))
+(DUCK)
+Break 7 [22]> (caddr '((peas carrots tomatoes) (pork beef chicken) duck))
+DUCK
+Break 7 [22]> (cddar '((peas carrots tomatoes) (pork beef chicken) duck))
+(TOMATOES)
+Break 7 [22]> (cadadr '((peas carrots tomatoes) (pork beef chicken) duck))
+BEEF
