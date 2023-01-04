@@ -1,0 +1,105 @@
+Break 7 [22]> (if '()
+'true
+'false)
+FALSE
+Break 7 [22]> (if '(1) 'true 'false)
+TRUE
+Break 7 [22]> (defun my-length (list)
+(if list (1+ (my-length (cdr list))) 0))
+MY-LENGTH
+Break 7 [22]> (my-length '(are you a dog))
+4
+Break 7 [22]> (eq '() nil)
+T
+Break 7 [22]> (eq '() ())
+T
+Break 7 [22]> (eq '() 'nil)
+T
+Break 7 [22]> (if (= (+ 1 2) 3) 'yup 'nope)
+YUP
+Break 7 [22]> (if (= (+ 1 2) 4) 'yup 'nope)
+NOPE
+Break 7 [22]> (if '(1) 'not-empty 'empty)
+NOT-EMPTY
+Break 7 [22]> (if '(0) 'not-empty 'empty)
+NOT-EMPTY
+Break 7 [22]> (if '() 'not-empty 'empty)
+EMPTY
+Break 7 [22]> (if (oddp 5) 'odd-num 'even-num)
+ODD-NUM
+Break 7 [22]> (if (oddp 5) 'odd-num (/ 1 0))
+ODD-NUM
+Break 7 [22]> (if (oddp 6) 'odd-num (/ 1 0))
+
+*** - /: division by zero
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort main loop
+Break 8 [23]> (defvar *number-was-odd* nil)
+*NUMBER-WAS-ODD*
+Break 8 [23]> (if (oddp 5)
+(progn (setf *number-was-odd* t) 'odd-number) 'even-number)
+ODD-NUMBER
+Break 8 [23]> (number-was-odd)
+
+*** - EVAL: undefined function NUMBER-WAS-ODD
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'NUMBER-WAS-ODD).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'NUMBER-WAS-ODD).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort main loop
+Break 9 [24]> (*number-was-odd*)
+
+*** - EVAL: undefined function *NUMBER-WAS-ODD*
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION '*NUMBER-WAS-ODD*).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION '*NUMBER-WAS-ODD*).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort main loop
+Break 10 [25]> *number-was-odd*
+T
+Break 10 [25]> (unless (oddp 4) (setf *number-is-odd* nil) 'even-number)
+EVEN-NUMBER
+Break 10 [25]> *number-was-odd*
+T
+Break 10 [25]> *number-is-odd*
+NIL
+Break 10 [25]> (unless (oddp 5) (setf *number-is-odd* nil) 'even-number)
+NIL
+Break 10 [25]> (defvar *number-is-odd* nil)
+*NUMBER-IS-ODD*
+Break 10 [25]> (when (oddp 5)
+(setf *number-is-odd* t)
+'odd-number)
+ODD-NUMBER
+Break 10 [25]> *number-is-odd*
+T
+Break 10 [25]> (unless (oddp 5) (setf *number-is-odd* nil) 'even-number 'odd-number)
+NIL
+Break 10 [25]> *number-is-odd*
+T
+Break 10 [25]> (unless (oddp 5) 'even-number 'odd-number)
+NIL
