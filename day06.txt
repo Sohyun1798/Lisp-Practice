@@ -1,0 +1,270 @@
+Break 12 [27]> (and (oddp 5) (oddp 7) (oddp 9))
+T
+Break 12 [27]> (or (oddp 4) (oddp 7) (oddp 8))
+T
+Break 12 [27]> (defparameter *is-it-even* nil)
+*IS-IT-EVEN*
+Break 12 [27]> (or (odd 4) (setf *is-it-even* t))
+
+*** - EVAL: undefined function ODD
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'ODD).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'ODD).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort main loop
+Break 13 [28]> (or (oddp 4) (setf *is-it-even* t))
+T
+Break 13 [28]> *is-it-even*
+T
+Break 13 [28]> (defparameter *is-it-even* nil)
+*IS-IT-EVEN*
+Break 13 [28]> (or (oddp 5) (setf *is-it-even* t))
+T
+Break 13 [28]> *is-it-even*
+NIL
+Break 13 [28]> (if *file-modified* (if (ask-user-about-saving) (save-file)))
+
+*** - IF: variable *FILE-MODIFIED* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *FILE-MODIFIED*.
+STORE-VALUE    :R2      Input a new value for *FILE-MODIFIED*.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort main loop
+Break 14 [29]> (and *file-modified* (ask-user-about-saving) (save-file))
+
+*** - AND: variable *FILE-MODIFIED* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *FILE-MODIFIED*.
+STORE-VALUE    :R2      Input a new value for *FILE-MODIFIED*.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort main loop
+Break 15 [30]> (if (member 1 '(3 4 1 5)) 'one-is-in-the-list 'one-is-not-in-the-list)
+ONE-IS-IN-THE-LIST
+Break 15 [30]> (member 1 '(3 4 1 5))
+(1 5)
+Break 15 [30]> (member 1 '(3 4 1 5 7))
+(1 5 7)
+Break 15 [30]> (member 'nil '(3 4 1 5 7))
+NIL
+Break 15 [30]> (if (member nil '(3 4 nil 5)) 'nil-is-in-the-list 'nil-is-not-in-the-list)
+NIL-IS-IN-THE-LIST
+Break 15 [30]> (find-if #'oddp '(2 4 5 6))
+5
+Break 15 [30]> (if (find-if #'oddp '(2 4 5 6)) 'there-is-an-odd 'there-is-no-odd)
+THERE-IS-AN-ODD
+Break 15 [30]> (find-if #'null '(2 4 nil 6))
+NIL
+Break 15 [30]> (null '(2 4 nil 6))
+NIL
+Break 15 [30]> (null '(2 4 6))
+NIL
+Break 15 [30]> (null '())
+T
+Break 15 [30]> (find-if #'null '())
+NIL
+Break 15 [30]> (if (null '()))
+
+*** - EVAL: too few parameters for special operator IF: (IF (NULL 'NIL))
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort main loop
+Break 16 [31]> (if (null '()) 'True 'False)
+TRUE
+Break 16 [31]> (if (#'null '()) 'True 'False)
+
+*** - EVAL: #'NULL is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort main loop
+Break 17 [32]> (if ((null '())) 'True 'False)
+
+*** - EVAL: (NULL 'NIL) is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort debug loop
+ABORT          :R19     Abort main loop
+Break 18 [33]> (if 'nil 'True 'False)
+FALSE
+Break 18 [33]> (if (null '(1 nil 3)) 'True 'False)
+FALSE
+Break 18 [33]> (if (null '(1 'nil 3)) 'True 'False)
+FALSE
+Break 18 [33]> (null '(2 4 'nil 6))
+NIL
+Break 18 [33]> (eq 5 5)
+T
+Break 18 [33]> (eq 'apple 'apple)
+T
+Break 18 [33]> (equal 5 5)
+T
+Break 18 [33]> (eq 5 4)
+NIL
+Break 18 [33]> (equal 5 4)
+NIL
+Break 18 [33]> (equalp 5 4)
+NIL
+Break 18 [33]> (equalp 5 5)
+T
+Break 18 [33]> (eq '(1 2 3) '(1 2 3))
+NIL
+Break 18 [33]> (equal '(1 2 3) '(1 2 3))
+T
+Break 18 [33]> (equal '(1 2 3) '(1 2 4))
+NIL
+Break 18 [33]> (eq 'fool 'fool)
+T
+Break 18 [33]> (eq "fool "fool)
+
+*** - SYSTEM::READ-EVAL-PRINT: variable FOOL has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of FOOL.
+STORE-VALUE    :R2      Input a new value for FOOL.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort debug loop
+ABORT          :R19     Abort debug loop
+ABORT          :R20     Abort debug loop
+ABORT          :R21     Abort main loop
+Break 19 [34]> (equal "fool "fool)
+
+*** - SYSTEM::READ-EVAL-PRINT: variable FOOL has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of FOOL.
+STORE-VALUE    :R2      Input a new value for FOOL.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort debug loop
+ABORT          :R19     Abort debug loop
+ABORT          :R20     Abort debug loop
+ABORT          :R21     Abort debug loop
+ABORT          :R22     Abort main loop
+Break 20 [35]> (equal "fool" "fool")
+T
+Break 20 [35]> (eq "fool" "fool")
+NIL
+Break 20 [35]> (eq 3.4 3.4)
+T
+Break 20 [35]> (eq 'foo 'fo2)
+NIL
+Break 20 [35]> (eq 'foo 'foo)
+T
+Break 20 [35]> (eq #\a #\a)
+T
+Break 20 [35]> (eql #\a #\a)
+T
+Break 20 [35]> (eql "fool" "fool")
+NIL
+Break 20 [35]> (equal "fool" "FOOL")
+NIL
+Break 20 [35]> (equalp "fool" "FOOL")
+T
+Break 20 [35]>
