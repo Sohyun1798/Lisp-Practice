@@ -1,0 +1,64 @@
+Break 10 [25]> (defvar *arch-enemy* nil)
+*ARCH-ENEMY*
+Break 10 [25]> (defun pudding-eater (person)
+(cond ((eq person 'henry) (setf *arch-enemy* 'stupid-lisp-alien) '(curse you - you ate my pudding))
+((eq person 'johnny) (setf *arch-enemy* 'usless-old-johnny) '(I hope you choked on my pudding johnny))
+(t '(why you eat my pudding?))))
+PUDDING-EATER
+Break 10 [25]> (pudding-eater 'henry)
+(CURSE YOU - YOU ATE MY PUDDING)
+Break 10 [25]> *arch-enemy
+
+*** - SYSTEM::READ-EVAL-PRINT: variable *ARCH-ENEMY has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *ARCH-ENEMY.
+STORE-VALUE    :R2      Input a new value for *ARCH-ENEMY.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort main loop
+Break 11 [26]> *arch-enemy*
+STUPID-LISP-ALIEN
+Break 11 [26]> (pudding-eater 'johnny)
+(I HOPE YOU CHOKED ON MY PUDDING JOHNNY)
+Break 11 [26]> *arch-enemy*
+USLESS-OLD-JOHNNY
+Break 11 [26]> (pudding-eater ')
+
+*** - READ from
+       #<INPUT CONCATENATED-STREAM #<INPUT STRING-INPUT-STREAM>
+         #<IO TERMINAL-STREAM>>
+      : an object cannot start with #\)
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort main loop
+Break 12 [27]> (pudding-eater 't)
+(WHY YOU EAT MY PUDDING?)
+Break 12 [27]> *arch-enemy*
+USLESS-OLD-JOHNNY
+Break 12 [27]> (defun pudding-eater (person)
+(case person
+((henry) (setf *arch-enemy* 'stupid-lisp-alien) '(curse you - you ate my pudding))
+(otherwise '(You are a stranger and ate my pudding?!)))
+)
+PUDDING-EATER
+Break 12 [27]> (pudding-eater 'sohyun)
+(YOU ARE A STRANGER AND ATE MY PUDDING?!)
+Break 12 [27]>
