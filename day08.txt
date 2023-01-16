@@ -1,0 +1,354 @@
+[1]> ((let (name (read))) (print name))
+
+*** - EVAL: (LET (NAME (READ))) is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort main loop
+Break 1 [2]> ((let ((name (read)))) (print name))
+
+*** - EVAL: (LET ((NAME (READ)))) is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort main loop
+Break 2 [3]> (defun hello()(let (name (read))) (print name))
+HELLO
+Break 2 [3]> (hello)
+
+*** - PROGN: variable NAME has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of NAME.
+STORE-VALUE    :R2      Input a new value for NAME.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 3 [4]> (defun hello()(let ((name (read)))) (print name))
+HELLO
+Break 3 [4]> (hello)
+sohyun
+
+*** - PROGN: variable NAME has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of NAME.
+STORE-VALUE    :R2      Input a new value for NAME.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort main loop
+Break 4 [5]> (defun hello() (print "type your name: ") (let ((name (read)))) (print name))
+HELLO
+Break 4 [5]> (hello)
+
+"type your name: " sohyun
+
+*** - PROGN: variable NAME has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of NAME.
+STORE-VALUE    :R2      Input a new value for NAME.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort main loop
+Break 5 [6]> (defun hello() (print "type your name: ") (let ((name (read))) (print name))
+
+*** - Ctrl-C: User break
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort main loop
+Break 6 [7]> (defun hello() (print "type your name: ") (let ((name (read))) (print name)))
+HELLO
+Break 6 [7]> (hello)
+
+"type your name: " sohyun
+
+SOHYUN
+SOHYUN
+Break 6 [7]> (let (name 'sohyun) (print name))
+
+*** - LET: variable SOHYUN has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of SOHYUN.
+STORE-VALUE    :R2      Input a new value for SOHYUN.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort main loop
+Break 7 [8]> (let (name "sohyun") (print name))
+
+*** - LET: illegal variable specification "sohyun"
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort main loop
+Break 8 [9]> (let ((name 'sohyun)) (print name))
+
+SOHYUN
+SOHYUN
+Break 8 [9]> '(+ 1 2) ;datamode
+(+ 1 2)
+Break 8 [9]> (+ 1 2) ;codemode
+3
+Break 8 [9]> (defparameter *foo* (+ 1 2))
+*FOO*
+Break 8 [9]> (eval *foo*)
+3
+Break 8 [9]> (defun game-repl ()
+(loop (print (eval (read)))))
+GAME-REPL
+Break 8 [9]> (game-repl)
+(look)
+
+*** - EVAL: undefined function LOOK
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'LOOK).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'LOOK).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort main loop
+Break 9 [10]> (game-repl)
+sohyun
+
+*** - EVAL: variable SOHYUN has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of SOHYUN.
+STORE-VALUE    :R2      Input a new value for SOHYUN.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort main loop
+Break 10 [11]> (defun half (n)
+(/n 2))
+HALF
+Break 10 [11]> (half 2)
+
+*** - EVAL: undefined function /N
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION '/N).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION '/N).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort main loop
+Break 11 [12]> (half (2))
+
+*** - EVAL: 2 is not a function name; try using a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort main loop
+Break 12 [13]> #'half
+#<FUNCTION HALF (N) (DECLARE (SYSTEM::IN-DEFUN HALF)) (BLOCK HALF (/N 2))>
+Break 12 [13]> (lambda (n) (/n 2))
+#<FUNCTION :LAMBDA (N) (/N 2)>
+Break 12 [13]> (mapcar (lambda (n) (/n 2)) '(2 4 6))
+
+*** - EVAL: undefined function /N
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION '/N).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION '/N).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort main loop
+Break 13 [14]> (mapcar (lambda (n) (/ n 2)) '(2 4 6))
+(1 2 3)
+Break 13 [14]> (cons 1 (cons 2 (cons 3 nil)))
+(1 2 3)
+Break 13 [14]> (cons 1 (cons 2 3))
+(1 2 . 3)
+Break 13 [14]> (cons 2 3)
+(2 . 3)
+Break 13 [14]> (setf "print-circle* t)
+
+*** - Ctrl-C: User break
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort main loop
+Break 14 [15]> (setf *print-circle* t)
+T
+Break 14 [15]> #'*print-circle*
+
+*** - FUNCTION: undefined function *PRINT-CIRCLE*
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION '*PRINT-CIRCLE*).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION '*PRINT-CIRCLE*).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort main loop
+Break 15 [16]> (defparameter foo '(1 2 3))
+FOO
+Break 15 [16]> (setf (cdddr foo) foo)
+#1=(1 2 3 . #1#)
+Break 15 [16]> (defparameter *drink-order* '((bill . double-espresso)
+(lisa . small-drip-coffee)
+(john . medium-latte)))
+*DRINK-ORDER*
+Break 15 [16]> (assoc 'lisa *drink-order*)
+(LISA . SMALL-DRIP-COFFEE)
+Break 15 [16]> (push '(lisa.large-mocha-with-cream) *drink-order*)
+((LISA.LARGE-MOCHA-WITH-CREAM) (BILL . DOUBLE-ESPRESSO) (LISA . SMALL-DRIP-COFFEE)
+ (JOHN . MEDIUM-LATTE))
+Break 15 [16]> (assoc 'lisa *drink-order*)
+(LISA . SMALL-DRIP-COFFEE)
+Break 15 [16]> *drink-order*
+((LISA.LARGE-MOCHA-WITH-CREAM) (BILL . DOUBLE-ESPRESSO) (LISA . SMALL-DRIP-COFFEE)
+ (JOHN . MEDIUM-LATTE))
+Break 15 [16]> (assoc 'lisa *drink-order*)
+(LISA . SMALL-DRIP-COFFEE)
+Break 15 [16]> (defparameter *house* ((walls (mortar (cement) (water) (sand)) bricks))
+(windows (glass) (frame) (curtains))
+(roof (shingles) (chimney))))
+
+*** - The macro DEFPARAMETER may not be called with 4 arguments:
+       (DEFPARAMETER *HOUSE* ((WALLS (MORTAR (CEMENT) (WATER) (SAND)) BRICKS))
+        (WINDOWS (GLASS) (FRAME) (CURTAINS)) (ROOF (SHINGLES) (CHIMNEY)))
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort main loop
+Break 16 [17]> (defparameter *house* ((walls (mortar (cement) (water) (sand)) (bricks))
+(windows (glass) (frame) (curtains))
+(roof (shingles) (chimney))))
+
+*** - EVAL: (WALLS (MORTAR (CEMENT) (WATER) (SAND)) (BRICKS)) is not a function name; try using
+      a symbol instead
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead.
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort main loop
+Break 17 [18]> (defparameter *house* (walls (mortar (cement) (water) (sand)) (bricks)))
+
+*** - EVAL: undefined function WALLS
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'WALLS).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'WALLS).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort debug loop
+ABORT          :R6      Abort debug loop
+ABORT          :R7      Abort debug loop
+ABORT          :R8      Abort debug loop
+ABORT          :R9      Abort debug loop
+ABORT          :R10     Abort debug loop
+ABORT          :R11     Abort debug loop
+ABORT          :R12     Abort debug loop
+ABORT          :R13     Abort debug loop
+ABORT          :R14     Abort debug loop
+ABORT          :R15     Abort debug loop
+ABORT          :R16     Abort debug loop
+ABORT          :R17     Abort debug loop
+ABORT          :R18     Abort debug loop
+ABORT          :R19     Abort debug loop
+ABORT          :R20     Abort debug loop
+ABORT          :R21     Abort main loop
+Break 18 [19]> (defparameter *house* '((walls (mortar (cement) (water) (sand)) (bricks)) (windows (glass) (frame)) (roof (shingles) (chimney))))
+*HOUSE*
+Break 18 [19]>
