@@ -1,0 +1,121 @@
+[1]> (print "foo)
+
+*** - Ctrl-C: User break
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [2]> (print "foo")
+
+"foo"
+"foo"
+Break 1 [2]> (progn (print "this") (print "is") (print "a") (print "test"))
+
+"this"
+"is"
+"a"
+"test"
+"test"
+Break 1 [2]> (progn (prin1 "this") (prin1 "is") (prin1 "a") (prin1 "test"))
+"this""is""a""test"
+"test"
+Break 1 [2]> (defun say-hello() (print "Please type your name:") (let ((name (read))) (prin1 "Nice to meet you, ") (print name)))
+SAY-HELLO
+Break 1 [2]> (say-hello)
+
+"Please type your name:" EMILY
+"Nice to meet you, "
+EMILY
+EMILY
+Break 1 [2]> (defun say-hello() (print "Please type your name:") (let ((name (read))) (prin1 "Nice to meet you, ") (prinl name)))
+SAY-HELLO
+Break 1 [2]> (defun say-hello() (print "Please type your name:") (let ((name (read))) (prin1 "Nice to meet you, ") (prin1 name)))
+SAY-HELLO
+Break 1 [2]> (say-hello)
+
+"Please type your name:" Emily
+"Nice to meet you, "EMILY
+EMILY
+Break 1 [2]> (defun add-five()
+(print "please enter a number:")
+(let ((num (read))))
+(print "When I add five I get")
+(print (+ num 5)))
+ADD-FIVE
+Break 1 [2]> (defun add-five()
+(print "please enter a number:")
+(let ((num (read)))
+(print "When I add five I get")
+(print (+ num 5))))
+ADD-FIVE
+Break 1 [2]> (add-five)
+
+"please enter a number:" 3
+
+"When I add five I get"
+8
+8
+Break 1 [2]> (print '3)
+
+3
+3
+Break 1 [2]> (print '3.4)
+
+3.4
+3.4
+Break 1 [2]> (print 'foo)
+
+FOO
+FOO
+Break 1 [2]> (print "foo")
+
+"foo"
+"foo"
+Break 1 [2]> (print "#\a")
+
+"#a"
+"#a"
+Break 1 [2]> (print '#\a)
+
+#\a
+#\a
+Break 1 [2]> (print '#\newline)
+
+#\Newline
+#\Newline
+Break 1 [2]> (print '#\space)
+
+#\Space
+#\Space
+Break 1 [2]> (print '#\|space|)
+
+*** - Ctrl-C: User break
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort main loop
+Break 2 [3]> (print '|space|)
+
+|space|
+|space|
+Break 2 [3]> (print '|space!|)
+
+|space!|
+|space!|
+Break 2 [3]> (princ '#\a)
+a
+#\a
+Break 2 [3]> (progn (princ "This sentence will be interrupted")
+(princ #\newline)
+(princ "by an annoying newline character."))
+This sentence will be interrupted
+by an annoying newline character.
+"by an annoying newline character."
+Break 2 [3]> (defun say-hello ()
+(princ "Please type your name:")
+(let ((name (read-line)))
+(princ "Nice to meet you, ")
+(princ name)))
+SAY-HELLO
+Break 2 [3]> (say-hello)
+Please type your name:Sohyun Park
+Nice to meet you, Sohyun Park
+"Sohyun Park"
+Break 2 [3]>
