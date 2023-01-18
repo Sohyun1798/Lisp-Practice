@@ -1,0 +1,7 @@
+[1]> (substitute-if #\e #'digit-char-p "I'm a l33t hack3r!")
+"I'm a leet hacker!"
+[2]> (substitute-if 0 #'oddp '(1 2 3 4 5 6 7 8))
+(0 2 0 4 0 6 0 8)
+[3]> (complement #'alphanumericp)
+#<COMPILED-FUNCTION COMMON-LISP::COMPLEMENT-1>
+[4]>
